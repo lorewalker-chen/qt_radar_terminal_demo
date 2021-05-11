@@ -1,5 +1,6 @@
 #include "main_window.h"
 #include "ui_main_window.h"
+#include "settings/global_settings.h"
 
 #include <QFile>
 #include <QTextStream>
@@ -14,10 +15,15 @@ MainWindow::MainWindow(QWidget* parent)
 MainWindow::~MainWindow() {
     delete ui;
 }
+//更新界面显示时间
+void MainWindow::UpdateTime() {
+    ui->dateTimeEdit->setDateTime(GlobalSettings::Instance()->GetCurrentDateTime());
+}
 //初始化
 void MainWindow::InitAll() {
     InitWindowStyle();
     InitStyleSheet();
+    InitTime();
 }
 //初始化窗口属性
 void MainWindow::InitWindowStyle() {
@@ -41,6 +47,12 @@ void MainWindow::InitStyleSheet() {
         qApp->setStyleSheet(qss);
         file.close();
     }
+}
+//初始化界面时间
+void MainWindow::InitTime() {
+    UpdateTime();
+    connect(GlobalSettings::Instance(), &GlobalSettings::TimeChanged,
+            this, &MainWindow::UpdateTime);
 }
 //退出按钮
 void MainWindow::on_pushButton_exit_clicked() {

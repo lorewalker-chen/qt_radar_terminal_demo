@@ -11,10 +11,12 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     main_window.cpp \
+    settings/global_settings.cpp \
     style/light_button.cpp
 
 HEADERS += \
     main_window.h \
+    settings/global_settings.h \
     style/light_button.h
 
 FORMS += \

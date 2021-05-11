@@ -17,12 +17,14 @@ class MainWindow : public QMainWindow {
     ~MainWindow();
 
   private slots:
+    void UpdateTime();
     void on_pushButton_exit_clicked();
 
   private:
     void InitAll();
     void InitWindowStyle();
     void InitStyleSheet();
+    void InitTime();
     Ui::MainWindow* ui;
 };
 #endif // MAINWINDOW_H
