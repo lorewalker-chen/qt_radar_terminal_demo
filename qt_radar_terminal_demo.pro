@@ -10,10 +10,12 @@ CONFIG += c++11
 
 SOURCES += \
     main.cpp \
-    main_window.cpp
+    main_window.cpp \
+    style/light_button.cpp
 
 HEADERS += \
-    main_window.h
+    main_window.h \
+    style/light_button.h
 
 FORMS += \
     main_window.ui
@@ -22,3 +24,7 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource/button.qrc \
+    resource/qss.qrc
