@@ -70,7 +70,8 @@ class GlobalSettings: public QObject {
     double radar_north_angle_ = 0; //雷达北向角
 
   signals:
-    void SettingsFileChanged();
+    void LocalNetChanged();
+    void RadarNetChanged();
     void TimeChanged();
     void RadarLocationChanged();
     void RadarNorthAngleChanged();

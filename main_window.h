@@ -37,6 +37,9 @@ class MainWindow : public QMainWindow {
     void InitStyleSheet();
     void InitTime();
     void InitPPI();
+    void InitNetWork();
+    void InitUdpSender();
+    void InitUdpReceiver();
 
     Ui::MainWindow* ui;
     PlanPositionIndicator* ppi_;

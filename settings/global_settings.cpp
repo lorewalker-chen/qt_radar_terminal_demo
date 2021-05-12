@@ -33,14 +33,17 @@ GlobalSettings* GlobalSettings::Instance() {
 //设置本地网络参数
 void GlobalSettings::SetLocalNetParam(const UdpParameters& param) {
     local_net_param_ = param;
+    emit LocalNetChanged();
 }
 //设置雷达网络参数
 void GlobalSettings::SetRadarNetParam(const UdpParameters& param) {
     radar_net_param_ = param;
+    emit RadarNetChanged();
 }
 //设置当前时间
 void GlobalSettings::SetCurrentDateTime(const QDateTime& time) {
     current_time_ = time;
+    emit TimeChanged();
 }
 //设置雷达位置
 void GlobalSettings::SetRadarLocation(const Location& location) {
@@ -72,11 +75,10 @@ Location GlobalSettings::GetRadarLocation() {
 double GlobalSettings::GetRadarNorthAngle() {
     return radar_north_angle_;
 }
-//响应文件变化，重新读取配置文件，发送配置改变信号
+//响应文件变化，重新读取配置文件
 void GlobalSettings::ConfigurationFileChanged(const QString& path) {
     if (path == configuration_file_path_) {
         ReadConfigurationFile();
-        emit SettingsFileChanged();
     }
 }
 //更新当前时间，每次+1s
@@ -138,11 +140,15 @@ void GlobalSettings::CreateInitialConfigurationFile() {
 //读取配置文件
 void GlobalSettings::ReadConfigurationFile() {
     QSettings* configuration_file = new QSettings(configuration_file_path_, QSettings::IniFormat);
-    //读取文件
+    //读取文件，发送设置改变信号
     local_net_param_.ipv4 = configuration_file->value("Local/ipv4").toString();
     local_net_param_.port = configuration_file->value("Local/port").toInt();
+    emit LocalNetChanged();
+
     radar_net_param_.ipv4 = configuration_file->value("Radar/ipv4").toString();
     radar_net_param_.port = configuration_file->value("Radar/port").toInt();
+    emit RadarNetChanged();
+
     delete configuration_file;
 }
 //初始化文件监视器，对配置文件添加监视

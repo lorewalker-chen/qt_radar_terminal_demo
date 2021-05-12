@@ -1,5 +1,5 @@
 QT       += core gui
-
+QT += network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -11,6 +11,9 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     main_window.cpp \
+    network/process_data.cpp \
+    network/udp_receiver.cpp \
+    network/udp_sender.cpp \
     ppi/plan_position_indicator.cpp \
     ppi/radar_points.cpp \
     ppi/radar_track.cpp \
@@ -22,6 +25,9 @@ SOURCES += \
 
 HEADERS += \
     main_window.h \
+    network/process_data.h \
+    network/udp_receiver.h \
+    network/udp_sender.h \
     ppi/plan_position_indicator.h \
     ppi/radar_points.h \
     ppi/radar_track.h \

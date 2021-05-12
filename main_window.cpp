@@ -1,6 +1,8 @@
 #include "main_window.h"
 #include "ui_main_window.h"
 #include "settings/global_settings.h"
+#include "network/udp_sender.h"
+#include "network/udp_receiver.h"
 #include "ppi/plan_position_indicator.h"
 
 #include <QFile>
@@ -60,6 +62,7 @@ void MainWindow::InitAll() {
     InitStyleSheet();
     InitTime();
     InitPPI();
+    InitNetWork();
 }
 //退出按钮
 void MainWindow::on_pushButton_exit_clicked() {
@@ -98,6 +101,21 @@ void MainWindow::InitTime() {
 void MainWindow::InitPPI() {
     ppi_ = new PlanPositionIndicator(ui->ppi);
     connect(ppi_, &PlanPositionIndicator::CurrentMousePolar, this, &MainWindow::UpdateCurrentMousePolar);
+}
+//初始化网络
+void MainWindow::InitNetWork() {
+    InitUdpSender();
+    InitUdpReceiver();
+}
+//初始化UDP发送类
+void MainWindow::InitUdpSender() {
+    //TODO 绑定报文改变信号
+    UdpSender::Instance();
+}
+//初始化UDP接收类
+void MainWindow::InitUdpReceiver() {
+    //TODO 绑定接收到报文信号
+    UdpReceiver::Instance();
 }
 
 
