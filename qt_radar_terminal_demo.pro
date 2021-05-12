@@ -11,11 +11,23 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     main_window.cpp \
+    ppi/plan_position_indicator.cpp \
+    ppi/radar_points.cpp \
+    ppi/radar_track.cpp \
+    ppi/scanning_line.cpp \
+    ppi/series_polar_points.cpp \
+    ppi/track_last_point.cpp \
     settings/global_settings.cpp \
     style/light_button.cpp
 
 HEADERS += \
     main_window.h \
+    ppi/plan_position_indicator.h \
+    ppi/radar_points.h \
+    ppi/radar_track.h \
+    ppi/scanning_line.h \
+    ppi/series_polar_points.h \
+    ppi/track_last_point.h \
     settings/global_settings.h \
     style/light_button.h
 
@@ -30,3 +42,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resource/button.qrc \
     resource/qss.qrc
+
+win32:CONFIG(debug,debug|release){
+    LIBS += -L$$[QT_INSTALL_PREFIX]/lib -lqwtd -lqwtpolard
+}
+else {
+    LIBS += -L$$[QT_INSTALL_PREFIX]/lib -lqwt -lqwtpolar
+}
+INCLUDEPATH += $$[QT_INSTALL_PREFIX]/include/Qwt
+INCLUDEPATH += $$[QT_INSTALL_PREFIX]/include/QwtPolar

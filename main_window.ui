@@ -481,7 +481,7 @@ QRadioButton:indicator{
      <string>yyyy/MM/dd hh:mm:ss</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_control_2">
+   <widget class="QPushButton" name="pushButton_settings">
     <property name="geometry">
      <rect>
       <x>1710</x>
@@ -649,7 +649,7 @@ margin-top:0px;
      <rect>
       <x>10</x>
       <y>70</y>
-      <width>161</width>
+      <width>160</width>
       <height>30</height>
      </rect>
     </property>
@@ -710,7 +710,7 @@ margin-top:0px;
      <string>距离：0m</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_plot">
+   <widget class="QCheckBox" name="checkBox_points">
     <property name="geometry">
      <rect>
       <x>11</x>
@@ -746,7 +746,7 @@ margin-top:0px;
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_track">
+   <widget class="QCheckBox" name="checkBox_tracks">
     <property name="geometry">
      <rect>
       <x>87</x>
@@ -782,7 +782,7 @@ margin-top:0px;
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_clear_track">
+   <widget class="QPushButton" name="pushButton_clear_tracks">
     <property name="geometry">
      <rect>
       <x>239</x>
@@ -815,7 +815,7 @@ margin-top:0px;
      <string>清航</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_clear_plot">
+   <widget class="QPushButton" name="pushButton_clear_points">
     <property name="geometry">
      <rect>
       <x>163</x>
