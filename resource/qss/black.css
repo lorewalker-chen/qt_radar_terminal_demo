@@ -627,11 +627,6 @@ QLineEdit,QTextEdit,QPlainTextEdit,QSpinBox,QDoubleSpinBox,QComboBox,QDateEdit,Q
 background:#000000;
 }
 
-*:disabled{
-background:#000000;
-border-color:#242629;
-}
-
 /*TextColor:#D7E2E9*/
 /*PanelColor:#000000*/
 /*BorderColor:#EEEEEC*/

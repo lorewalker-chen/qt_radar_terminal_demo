@@ -183,7 +183,7 @@ void PlanPositionIndicator::InitAll() {
 //初始化整体风格
 void PlanPositionIndicator::InitStyle() {
     //背景色，黑色，整体填充
-    setPlotBackground(QBrush(Qt::black, Qt::SolidPattern));
+    setPlotBackground(QBrush(QColor(0, 0, 0, 0), Qt::SolidPattern));
     //开启悬停事件
     setAttribute(Qt::WA_Hover, true);
 }
@@ -239,7 +239,7 @@ void PlanPositionIndicator::InitScanningLine() {
     //定时转动扫描线
     scanning_line_timer_ = new QTimer;
     connect(scanning_line_timer_, &QTimer::timeout, this, &PlanPositionIndicator::RotateScanningLine);
-#if 0
+#if 1
     scanning_line_timer_->start(40);
 #endif
 }
