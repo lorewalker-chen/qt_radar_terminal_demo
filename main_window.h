@@ -20,13 +20,7 @@ class MainWindow : public QMainWindow {
 
   private slots:
     void UpdateTime();
-    void UpdateCurrentMousePolar(const QwtPointPolar& polar);
 
-    void on_checkBox_points_stateChanged(int arg1);
-    void on_checkBox_tracks_stateChanged(int arg1);
-    void on_pushButton_clear_points_clicked();
-    void on_pushButton_clear_tracks_clicked();
-    void on_pushButton_clear_all_clicked();
     void on_pushButton_exit_clicked();
 
 
